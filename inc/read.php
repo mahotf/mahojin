@@ -19,7 +19,8 @@
 					<td><a href="?read=<?php echo $rdm_result['id'];?>">Read another <?php echo $content_caption['category'];?> related story</a></td>
 					<?php } ?>
 					<td><a href="/">Homepage</a></td>
-					<td>Share on Twitter</td>
+					<td><a href="http://twitter.com/share?text=<?php echo $content_caption['title']." written by ".$content_caption['author']?>&url=http://mahojin.me?read=<?php echo $content_caption['id'];?>&key=<?php echo $content_caption['salt'];?>&hashtags=mahojin
+">Share on Twitter</td>
 				</table>
 				</div>
 			</td>
