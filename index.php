@@ -60,8 +60,10 @@ if (isset($_POST['submit'])){
 						include('inc/private.php');
 					else
 						include('inc/read.php');}}
-			if (isset($_GET['create']))
+			else if (isset($_GET['create']))
 				include('inc/form.php');
+			else
+				include('inc/home.php');
 		?>
 	</div>
 
