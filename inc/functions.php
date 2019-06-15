@@ -1,7 +1,6 @@
 <?php
-
 function 	protect($param){
-	return (htmlentities(nl2br(addslashes($param))));
+	return (nl2br(addslashes(htmlentities($param))));
 }
 
 function 	bdd_connect(){

@@ -46,16 +46,17 @@ if (isset($_POST['submit'])){
 	<div class="container-cap100" style="background-image: url('images/bg-01.jpg');">
 		<?php
 			if (isset($_GET['read'])){
-				$data = $bdd->query("SELECT * FROM `captions` WHERE id='".$_GET['read']."'");
-				if (!isset($data))
+				$bdd = bdd_connect();
+				$request = $bdd->query("SELECT * FROM captions WHERE id = '".$_GET['read']."'");
+				$content_caption = $request->fetch_assoc();
+				if (!isset($content_caption))
 					include('inc/wrong_id.php');
 				else{
-					$result = $data->fetch_assoc();
-					if ($result['private'] === 1 AND (isset($_GET['key']) AND $_GET['key'] === $result['salt']))
+					if ($content_caption['private'] == 1 AND (isset($_GET['key']) AND $_GET['key'] === $content_caption['salt']))
 						include('inc/read.php');
-					else if ($result['private'] === 1 AND (isset($_GET['key']) AND $_GET['key'] != $result['salt']))
+					else if ($content_caption['private'] == 1 AND (isset($_GET['key']) AND $_GET['key'] != $content_caption['salt']))
 						include('inc/private.php');
-					else if ($result['private'] === 1 AND (!isset($_GET['key'])))
+					else if ($content_caption['private'] == 1 AND (!isset($_GET['key'])))
 						include('inc/private.php');
 					else
 						include('inc/read.php');}}
