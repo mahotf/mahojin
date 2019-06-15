@@ -18,6 +18,7 @@
 					    <option value="FoodTF">FoodTF</option>
 					    <option value="ASFR">ASFR</option>
 					    <option value="OnahoTF">OnahoTF</option>
+					    <option value="None">None (just wanna try)</option>
 					</select>
 				</div>
 
